@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 image:
   # image.repository -- Container Image to run the scan
   repository: docker.io/securecodebox/scanner-nmap
@@ -58,3 +62,7 @@ scannerJob:
       drop:
         # scannerJob.securityContext.capabilities.drop[0] -- This drops all linux privileges from the container.
         - all
+
+cascadingRules:
+  # cascadingRules.enabled -- Enables or disables the installation of the default cascading rules for this scanner
+  enabled: true

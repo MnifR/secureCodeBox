@@ -1,10 +1,14 @@
-apiVersion: v1
-name: angularja-csti-scanner
-description: A Helm chart for the  angularja csti scanner that integrates with the secureCodeBox.
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
+apiVersion: v2
+name: angularjs-csti-scanner
+description: A Helm chart for the angularjs csti scanner that integrates with the secureCodeBox.
 
 type: application
 # version - gets automatically set to the secureCodeBox release version when the helm charts gets published
-version: latest
+version: v2.7.0-alpha1
 appVersion: 3.0.6
 kubeVersion: ">=v1.11.0-0"
 
@@ -13,7 +17,7 @@ keywords:
   - acstis
   - scanner
   - secureCodeBox
-home: https://docs.securecodebox.io/docs/scanners/angularja-csti-scanner
+home: https://docs.securecodebox.io/docs/scanners/angularjs-csti-scanner
 icon: https://docs.securecodebox.io/img/integrationIcons/Acstis.svg
 sources:
   - https://github.com/secureCodeBox/secureCodeBox

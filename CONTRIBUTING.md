@@ -1,10 +1,17 @@
+<!--
+SPDX-FileCopyrightText: 2020 iteratec GmbH
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Contributing
 
 - [Contributing](#contributing)
   - [GitHub Flow](#github-flow)
     - [How to work with GitHub Flow](#how-to-work-with-github-flow)
   - [Working with Forks and Pull Requests](#working-with-forks-and-pull-requests)
-  - [Working with Issues / How to Contribute in Issues](#working-with-issues--how-to-contribute-in-issues)
+  - [Bugfixing and Security Fixing Released Features](#bugfixing-and-security-fixing-released-features)
+  - [Working with Issues - How to Contribute in Issues](#working-with-issues---how-to-contribute-in-issues)
   - [How to Write Commit Messages](#how-to-write-commit-messages)
   - [Code of Conduct](#code-of-conduct)
 
@@ -37,7 +44,11 @@ TL;DR
 5. merge only after pull request review
 6. deploy immediately after review
 
+**_Please make sure to sign all your commits (See: [git-scm](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work))._**
+
 ## Working with Forks and Pull Requests
+
+**_Please make sure to sign all your commits (See: [git-scm](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work))._**
 
 If you want to contribute you will need to fork the project.
 To enable the use of our CI Pipeline you will need to add these GitHub secrets:
@@ -54,7 +65,23 @@ When you are done, you can convert it to a standard *Pull Request* (or create on
 
 Generally the _secureCodeBox_ project follows the standard [GitHub Pull request process](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests).
 
-## Working with Issues/How to Contribute in Issues
+**_Please make sure to sign all your commits (See: [git-scm](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work))._**
+
+## Bugfixing and Security Fixing Released Features
+
+For bugfixes and security fixes of the current release please follow the following workflow:
+- For the minor release
+  - Checkout current minor release branch (e.g. v2.5.x) or create if not existent from latest git tag
+  - Create a bugfix branch from release branch
+  - Fix Bug
+  - Create PR to release branch
+  - Generate new semver release
+- For the main branch:
+  - Create a bugfix branch from `main` branch
+  - Cherry-Pick Bugfix and commit to bugfix branch
+  - Create PR to `main` branch 
+
+## Working with Issues - How to Contribute in Issues
 
 It is mandatory to open an issue, if the task takes longer than one hour.
 Before you open an issue please verify there is no existing one covering your issue.

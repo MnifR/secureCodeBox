@@ -1,8 +1,11 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 apiVersion: "execution.securecodebox.io/v1"
 kind: ParseDefinition
 metadata:
   name: "amass-jsonl"
 spec:
-  handlesResultsType: amass-jsonl
   image: "{{ .Values.parserImage.repository }}:{{ .Values.parserImage.tag | default .Chart.Version }}"
   ttlSecondsAfterFinished: {{ .Values.parseJob.ttlSecondsAfterFinished }}

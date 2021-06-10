@@ -1,9 +1,12 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 apiVersion: "execution.securecodebox.io/v1"
 kind: ParseDefinition
 metadata:
   name: "ncrack-xml"
 spec:
-  handlesResultsType: ncrack-xml
   image: "{{ .Values.parserImage.repository }}:{{ .Values.parserImage.tag | default .Chart.Version }}"
   ttlSecondsAfterFinished: {{ .Values.parseJob.ttlSecondsAfterFinished }}
   {{- if .Values.encryptPasswords.existingSecret }}

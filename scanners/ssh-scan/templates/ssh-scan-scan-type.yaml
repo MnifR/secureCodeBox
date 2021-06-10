@@ -1,9 +1,12 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 apiVersion: "execution.securecodebox.io/v1"
 kind: ScanType
 metadata:
   name: "ssh-scan"
 spec:
-  name: "ssh-scan"
   extractResults:
     type: ssh-scan-json
     location: "/home/securecodebox/ssh-scan-results.json"

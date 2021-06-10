@@ -21,35 +21,45 @@ helm upgrade --install gitleaks secureCodeBox/git-repo-scanner
 
 ## Scanner configuration
 
-The scanner options can be divided into two groups for gitlab and github. You can choose the git
+The scanner options can be divided into two groups for Gitlab and GitHub. You can choose the git
 repository type with the option:
 
 ```bash
 --git-type github
 or
---git-type gitlab
+--git-type Gitlab
 ```
 
 #### GitHub
-For type github you can use the following options:
-- `--organization`: The name of the github organization you want to scan.
-- `--url`: The url of the api for a github enterprise server. Skip this option for repos on <https://github.com>.
-- `--access-token`: Your personal github access token.
-- `--ignore-repos`: A list of github repository ids you want to ignore
+For type GitHub you can use the following options:
+- `--organization`: The name of the GitHub organization you want to scan.
+- `--url`: The url of the api for a GitHub enterprise server. Skip this option for repos on <https://github.com>.
+- `--access-token`: Your personal GitHub access token.
+- `--ignore-repos`: A list of GitHub repository ids you want to ignore
+- `--obey-rate-limit`: True to obey the rate limit of the GitHub server (default), otherwise False
+- `--activity-since-duration`: Return git repo findings with repo activity (e.g. commits) more recent than a specific date expressed by a duration (now + duration). A duration string is a possibly signed sequence of decimal numbers, each
+                               with optional fraction and a unit suffix, such as '1h' or '2h45m'. Valid time units are 'm', 'h', 'd', 'w'.
+- `--activity-until-duration`: Return git repo findings with repo activity (e.g. commits) older than a specific date expressed by a duration (now + duration). A duration string is a possibly signed sequence of decimal numbers, each with
+                               optional fraction and a unit suffix, such as '1h' or '2h45m'. Valid time units are 'm', 'h', 'd', 'w'.
 
-For now only organizations are supported so the option is mandatory. We **strongly recommend** providing an access token
+For now only organizations are supported, so the option is mandatory. We **strongly recommend** providing an access token
 for authentication. If not provided the rate limiting will kick in after about 30 repositories scanned.
 
 #### GitLab
-For type gitlab you can use the following options:
-- `--url`: The url of the gitlab server.
-- `--access-token`: Your personal gitlab access token.
-- `--group`: A specific gitlab group id you want to san, including subgroups.
-- `--ignore-groups`: A list of gitlab group ids you want to ignore
-- `--ignore-repos`: A list of gitlab project ids you want to ignore
+For type GitLab you can use the following options:
+- `--url`: The url of the GitLab server.
+- `--access-token`: Your personal GitLab access token.
+- `--group`: A specific GitLab group id you want to san, including subgroups.
+- `--ignore-groups`: A list of GitLab group ids you want to ignore
+- `--ignore-repos`: A list of GitLab project ids you want to ignore
+- `--obey-rate-limit`: True to obey the rate limit of the GitLab server (default), otherwise False
+- `--activity-since-duration`: Return git repo findings with repo activity (e.g. commits) more recent than a specific date expressed by a duration (now + duration). A duration string is a possibly signed sequence of decimal numbers, each
+                               with optional fraction and a unit suffix, such as '1h' or '2h45m'. Valid time units are 'm', 'h', 'd', 'w'.
+- `--activity-until-duration`: Return git repo findings with repo activity (e.g. commits) older than a specific date expressed by a duration (now + duration). A duration string is a possibly signed sequence of decimal numbers, each with
+                               optional fraction and a unit suffix, such as '1h' or '2h45m'. Valid time units are 'm', 'h', 'd', 'w'.
 
-For gitlab the url and the access token is mandatory. If you don't provide a specific group id all projects
-on the gitlab server are going to be discovered.
+For Gitlab, the url and the access token is mandatory. If you don't provide a specific group id, all projects
+on the Gitlab server are going to be discovered.
 
 ## Chart Configuration
 
@@ -68,4 +78,3 @@ on the gitlab server are going to be discovered.
 | scannerJob.resources | object | `{}` | CPU/memory resource requests/limits (see: https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/, https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/) |
 | scannerJob.securityContext | object | `{}` | Optional securityContext set on scanner container (see: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) |
 | scannerJob.ttlSecondsAfterFinished | string | `nil` | seconds after which the kubernetes job for the scanner will be deleted. Requires the Kubernetes TTLAfterFinished controller: https://kubernetes.io/docs/concepts/workloads/controllers/ttlafterfinished/ |
-

@@ -1,3 +1,8 @@
+{{- /*
+SPDX-FileCopyrightText: 2020 iteratec GmbH
+
+SPDX-License-Identifier: Apache-2.0
+*/ -}}
 {{/* vim: set filetype=mustache: */}}
 {{/*
 Expand the name of the chart.
@@ -35,7 +40,7 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "persistence-defectdojo.labels" -}}
-helm.sh/chart: {{ include "defectdojo-elastic.chart" . }}
+helm.sh/chart: {{ include "persistence-defectdojo.chart" . }}
 {{ include "persistence-defectdojo.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}

@@ -1,7 +1,12 @@
-const { handle, axios } = require("./hook");
+// SPDX-FileCopyrightText: 2020 iteratec GmbH
+//
+// SPDX-License-Identifier: Apache-2.0
+
+const { handle } = require("./hook");
+const axios = jest.createMockFromModule('axios')
 
 beforeEach(() => {
-  axios.post.mockClear();
+  jest.clearAllMocks();
 });
 
 test("should send a post request to the url when fired", async () => {
@@ -25,7 +30,7 @@ test("should send a post request to the url when fired", async () => {
 
   const webhookUrl = "http://example.com/foo/bar";
 
-  await handle({ getFindings, scan, webhookUrl });
+  await handle({ getFindings, scan, webhookUrl, axios });
 
   expect(axios.post).toBeCalledWith(webhookUrl, {
     scan,

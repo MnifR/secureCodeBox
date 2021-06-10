@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 apiVersion: "cascading.securecodebox.io/v1"
 kind: CascadingRule
 metadata:
@@ -11,6 +15,10 @@ spec:
       - category: "Open Port"
         attributes:
           port: 636
+          state: open
+      - category: "Open Port"
+        attributes:
+          service: "ldapssl"
           state: open
   scanSpec:
     scanType: "sslyze"

@@ -1,9 +1,12 @@
-const axios = require("axios");
+// SPDX-FileCopyrightText: 2020 iteratec GmbH
+//
+// SPDX-License-Identifier: Apache-2.0
 
 async function handle({
   getFindings,
   scan,
   webhookUrl = process.env["WEBHOOK_URL"],
+  axios = require('axios')
 }) {
   const findings = await getFindings();
 
@@ -12,4 +15,3 @@ async function handle({
   await axios.post(webhookUrl, { scan, findings });
 }
 module.exports.handle = handle;
-module.exports.axios = axios;

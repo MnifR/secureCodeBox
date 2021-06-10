@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 apiVersion: "execution.securecodebox.io/v1"
 kind: ScanType
 metadata:
@@ -20,7 +24,8 @@ spec:
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.Version }}"
               command:
                 - "python"
-                - "/scripts/git_repo_scanner.py"
+                - "-m"
+                - "git_repo_scanner"
                 - "--file-output"
                 - "/home/securecodebox"
               resources:

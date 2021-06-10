@@ -1,4 +1,10 @@
-const { cascadingScan } = require('../helpers')
+// SPDX-FileCopyrightText: 2020 iteratec GmbH
+//
+// SPDX-License-Identifier: Apache-2.0
+
+const { cascadingScan } = require("../helpers");
+
+jest.retryTimes(3);
 
 test(
   "Cascading Scan nmap -> sslyze on unsafe-https",
@@ -11,8 +17,8 @@ test(
         nameCascade: "https-tls-scan",
         matchLabels: {
           "securecodebox.io/invasive": "non-invasive",
-          "securecodebox.io/intensive": "light"
-        }
+          "securecodebox.io/intensive": "light",
+        },
       },
       4 * 60
     );

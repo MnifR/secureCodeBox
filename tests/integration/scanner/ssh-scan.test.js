@@ -1,5 +1,11 @@
+// SPDX-FileCopyrightText: 2020 iteratec GmbH
+//
+// SPDX-License-Identifier: Apache-2.0
+
 // todo: Integrate into github ci pipeline
 const { scan } = require("../helpers");
+
+jest.retryTimes(3);
 
 test(
   "ssh-scan should find a couple of findings for a dummy ssh service",

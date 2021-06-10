@@ -1,9 +1,12 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 apiVersion: "execution.securecodebox.io/v1"
 kind: ScanType
 metadata:
   name: "wpscan"
 spec:
-  name: "wpscan"
   extractResults:
     type: wpscan-json
     location: "/home/securecodebox/wpscan-results.json"

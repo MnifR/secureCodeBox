@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2020 iteratec GmbH
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const fs = require("fs");
 const util = require("util");
 
@@ -30,6 +34,7 @@ test("should properly parse nmap xml file", async () => {
           "serviceProduct": null,
           "serviceVersion": null,
           "state": "open",
+          "tunnel": null,
         },
         "category": "Open Port",
         "description": "Port 53 is open using tcp protocol.",
@@ -52,6 +57,7 @@ test("should properly parse nmap xml file", async () => {
           "serviceProduct": null,
           "serviceVersion": null,
           "state": "open",
+          "tunnel": null,
         },
         "category": "Open Port",
         "description": "Port 8021 is open using tcp protocol.",
@@ -74,6 +80,7 @@ test("should properly parse nmap xml file", async () => {
           "serviceProduct": null,
           "serviceVersion": null,
           "state": "open",
+          "tunnel": null,
         },
         "category": "Open Port",
         "description": "Port 8080 is open using tcp protocol.",
@@ -96,6 +103,7 @@ test("should properly parse nmap xml file", async () => {
           "serviceProduct": null,
           "serviceVersion": null,
           "state": "open",
+          "tunnel": null,
         },
         "category": "Open Port",
         "description": "Port 9200 is open using tcp protocol.",
@@ -177,6 +185,7 @@ test("should properly parse a nmap xml with missing service information", async 
           "serviceProduct": null,
           "serviceVersion": null,
           "state": "filtered",
+          "tunnel": null,
         },
         "category": "Open Port",
         "description": "Port 10250 is filtered using tcp protocol.",
@@ -226,6 +235,7 @@ test("Should properly parse a nmap xml with script specific SMB findings", async
           "serviceProduct": null,
           "serviceVersion": null,
           "state": "open",
+          "tunnel": null,
         },
         "category": "Open Port",
         "description": "Port 445 is open using tcp protocol.",

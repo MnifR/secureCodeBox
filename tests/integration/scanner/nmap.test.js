@@ -1,4 +1,10 @@
-const { scan } = require('../helpers')
+// SPDX-FileCopyrightText: 2020 iteratec GmbH
+//
+// SPDX-License-Identifier: Apache-2.0
+
+const { scan } = require("../helpers");
+
+jest.retryTimes(3);
 
 test(
   "localhost port scan should only find a host finding",
@@ -28,12 +34,11 @@ test(
 test(
   "invalid port scan should be marked as errored",
   async () => {
-    await expect(scan(
-      "nmap-localhost",
-      "nmap",
-      ["-invalidFlag", "localhost"],
-      90
-    )).rejects.toThrow('Scan failed with description "Failed to run the Scan Container, check k8s Job and its logs for more details"');
+    await expect(
+      scan("nmap-localhost", "nmap", ["-invalidFlag", "localhost"], 90)
+    ).rejects.toThrow(
+      'Scan failed with description "Failed to run the Scan Container, check k8s Job and its logs for more details"'
+    );
   },
   3 * 60 * 1000
 );

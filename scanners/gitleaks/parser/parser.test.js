@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2020 iteratec GmbH
+//
+// SPDX-License-Identifier: Apache-2.0
+
 const fs = require("fs");
 const util = require("util");
 
@@ -9,6 +13,16 @@ const { parse } = require("./parser");
 test("should properly parse empty gitleaks json file", async () => {
   const jsonContent = await readFile(
     __dirname + "/__testFiles__/test-empty-report.json",
+    {
+      encoding: "utf8"
+    }
+  );
+  expect(await parse(JSON.parse(jsonContent))).toMatchObject([]);
+});
+
+test("should properly parse gitleaks json file with null result", async () => {
+  const jsonContent = await readFile(
+    __dirname + "/__testFiles__/test-null-report.json",
     {
       encoding: "utf8"
     }

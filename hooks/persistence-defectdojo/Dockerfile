@@ -1,7 +1,11 @@
+# SPDX-FileCopyrightText: 2020 iteratec GmbH
+#
+# SPDX-License-Identifier: Apache-2.0
+
 FROM gradle:jdk11 as build
 COPY . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build -x test
+RUN ./gradlew build -x test
 
 FROM gcr.io/distroless/java:11-nonroot
 COPY --from=build --chown=nonroot:nonroot /home/gradle/src/build/libs /app
